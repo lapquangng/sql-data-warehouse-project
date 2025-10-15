@@ -1,3 +1,13 @@
+/*
+===========================================================
+Create Database and Schemas
+===========================================================
+Script Purpose:
+	This script creates tables in the 'bronze' schema, dropping existing tables
+	if they already exist.
+	Run this script to re-define the DDL structure of 'bronze' Tables
+===========================================================
+*/
 DROP TABLE IF EXISTS bronze.crm_cust_info;
 CREATE TABLE bronze.crm_cust_info (
 	cst_id INT,
@@ -22,13 +32,15 @@ CREATE TABLE bronze.crm_prd_info (
 
 DROP TABLE IF EXISTS bronze.crm_sales_details;
 CREATE TABLE bronze.crm_sales_details (
-	sls_id INT,
-	sls_key NVARCHAR(50),
-	sls_firstname NVARCHAR(50),
-	sls_lastname NVARCHAR(50),
-	sls_material_status NVARCHAR(50),
-	sls_gndr NVARCHAR(50),
-	sls_create_date DATE
+	sls_ord_num NVARCHAR(50),
+	sls_prd_key NVARCHAR(50),
+	sls_cust_id INT,
+	sls_order_dt INT,
+	sls_ship_dt INT,
+	sls_due_dt INT,
+	sls_sales INT,
+	sls_quantity INT,
+	sls_price INT
 );
 
 DROP TABLE IF EXISTS bronze.erp_loc_a101;
